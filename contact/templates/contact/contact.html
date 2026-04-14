@@ -3,6 +3,11 @@
 {% block content %}
   <div class="single-contact">
     <h1 class="single-contact-name">{{ contact.first_name }} {{ contact.last_name }}</h1>
-    
+    <p class="single-contact-id"><b>ID:</b> {{ contact.id }}</p>
+    <p class="single-contact-email"><b>Email:</b> {{ contact.email }}</p>
+    <p class="single-contact-phone"><b>Telefone:</b> {{ contact.phone }}</p>
+    <p class="single-contact-company"><b>Criado em:</b> {{ contact.created_date }}</p>
+    <p class="single-contact-description"><b>Descrição:</b> {{ contact.description }}</p>
+    <p class="single-contact-category"><b>Categoria:</b> {{ contact.category }}</p>
   </div>
 {% endblock content %}

@@ -1,0 +1,18 @@
+<header class="header">
+    <h1 class="header-heading">
+      <a href="{% url 'index' %}" class="header-link">Agenda</a>
+    </h1>
+
+    <nav class="menu">
+      <ul class="menu-list">
+        <li class="menu-item"><a href="{% url 'index' %}" class="menu-link">Início</a></li>
+        <li class="menu-item"><a href="#" class="menu-link">Sobre</a></li>
+      </ul>
+    </nav>
+
+    <div class="search">
+      <form action="{% url 'search' %}" method="get">
+        <input type="text" class="search-input " name="q" placeholder="Pesquisar...">
+      </form>
+    </div>
+  </header>
