@@ -312,3 +312,28 @@ svg {
   filter: brightness(80%);
   box-shadow: 0 0 5px var(--link-dark-color);
 }
+
+/* Footer */
+footer {
+  background: var(--clr-black);
+  color: var(--clr-white);
+  text-align: center;
+  padding: var(--spacing);
+  margin-top: var(--spacing);
+  box-shadow: 0 -5px 10px 2px var(--clr-dark-shadow-20);
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+footer p{
+  text-align: center;
+}
+
+footer a {
+  color: var(--link-light-color);
+  text-decoration: none;
+  transition: filter var(--transition-fast) ease-in-out;
+}
+
