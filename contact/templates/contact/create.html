@@ -1,28 +1,40 @@
 {% extends 'global/base.html' %}
 
 {% block content %}
-   <div class="form-wrapper">
+  <div class="form-wrapper">
 
     <h2>Contato</h2>
 
     <form
-      action=""
+      action="{% url 'create' %}" 
       method="POST"
       enctype="multipart/form-data"
-
     >
-    {% csrf_token %}
+      {% csrf_token %}
 
-      <div class="form-content">
-        <div class="form-group">
-          <label for="id_first_name">LABEL</label>
-          <input type="text" name="first_name" maxlength="255" id="id_first_name">
+      {# Renderização dos campos individuais #}
+      {% for field in form %}
+        <div class="form-content">
+          <div class="form-group">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {{ field.errors }}
+          </div>
         </div>
-      </div>
+      {% endfor %}
+
+      {# Erros que não pertencem a um campo específico #}
+      {% if form.non_field_errors %}
+        <div class="form-content">
+          <div class="form-errors">
+            <p class="error-message">{{ form.non_field_errors }}</p>
+          </div>
+        </div>
+      {% endif %}
 
       <div class="form-content">
         <div class="form-group">
-          <button class="btn" type="submit">Send</button>
+          <button class="btn" type="submit">Enviar</button>
         </div>
       </div>
 
