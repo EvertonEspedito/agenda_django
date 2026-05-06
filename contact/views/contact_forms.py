@@ -1,22 +1,6 @@
-from django.shortcuts import render, get_object_or_404
-from django.core.paginator import Paginator
-from contact.models import Contact
-from django.db.models import Q
+from django.shortcuts import render
+from contact.forms import ContactForm
 
-from django import forms
-
-class ContactForm(forms.ModelForm):
-    class Meta:
-        model = Contact
-        fields = ['first_name', 'last_name', 'phone']
-
-    def clean(self):
-        cleaned_data = super().clean()
-        self.add_error('first_name', 'O campo first_name é obrigatório.')
-        self.add_error('last_name', 'O campo last_name é obrigatório.')
-        self.add_error('phone', 'O campo phone é obrigatório.')
-        
-        return cleaned_data
 
 def create(request):
 

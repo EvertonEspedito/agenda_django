@@ -15,16 +15,16 @@ class Contact(models.Model):
     class Meta:
         verbose_name_plural = 'Contacts' # Define o nome plural para o contato no admin
 
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    phone = models.CharField(max_length=15)
-    email = models.EmailField(max_length=254, blank=True) # o blank=True permite que o campo seja opcional
-    created_date = models.DateTimeField(default=timezone.now)
-    description = models.TextField(blank=True) 
-    
-    show = models.BooleanField(default=True) # Campo para controlar a visibilidade do contato
-    picture = models.ImageField(upload_to='contact_pictures/%Y/%m/%d/', blank=True, null=True) # Campo para armazenar a foto do contato
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True) # Relacionamento com a categoria
+    first_name = models.CharField(max_length=50, verbose_name='Primeiro Nome') # verbose_name para exibir um nome mais amigável no admin
+    last_name = models.CharField(max_length=50, verbose_name='Último Nome')
+    phone = models.CharField(max_length=15, verbose_name='Telefone')
+    email = models.EmailField(max_length=254, blank=True, verbose_name='E-mail') # o blank=True permite que o campo seja opcional
+    created_date = models.DateTimeField(default=timezone.now, verbose_name='Data de Criação')
+    description = models.TextField(blank=True, verbose_name='Descrição')
+
+    show = models.BooleanField(default=True, verbose_name='Mostrar') # Campo para controlar a visibilidade do contato
+    picture = models.ImageField(upload_to='contact_pictures/%Y/%m/%d/', blank=True, null=True, verbose_name='Foto') # Campo para armazenar a foto do contato
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Categoria') # Relacionamento com a categoria
 
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True) # Relacionamento com o usuário proprietário do contato
 
