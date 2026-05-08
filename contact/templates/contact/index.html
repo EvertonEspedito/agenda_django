@@ -11,6 +11,7 @@
           <th class="table-header">Último Nome</th>
           <th class="table-header">Email</th>
           <th class="table-header">Telefone</th>
+          <th class="table-header">Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -21,6 +22,14 @@
           <td class="table-cel">{{ contact.last_name }}</td>
           <td class="table-cel">{{ contact.email }}</td>
             <td class="table-cel">{{ contact.phone }}</td>
+            <td class="table-cel" style="flex-direction: column; display: flex; gap: 5px; align-items: flex-start;">
+              <a href="{% url 'update' contact.id %}">
+                Editar
+              </a>
+              <a href="#">
+                Excluir
+              </a>
+            </td>
           </tr>
         {% empty %} 
           <tr class="table-row">
