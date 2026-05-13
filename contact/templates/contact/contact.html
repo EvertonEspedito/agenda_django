@@ -9,5 +9,21 @@
     <p class="single-contact-company"><b>Criado em:</b> {{ contact.created_date }}</p>
     <p class="single-contact-description"><b>Descrição:</b> {{ contact.description }}</p>
     <p class="single-contact-category"><b>Categoria:</b> {{ contact.category }}</p>
+
+    <div class="contact-links">
+      <a class="btn btn-link" href="{% url 'contact:update' contact.id %}">Editar</a>
+
+      <form action="{% url 'contact:delete' contact.id %}" method="POST">
+        {% csrf_token %}
+
+        {% if confirmation == 'no' %}
+          <input type="hidden" name="confirmation" value="yes">
+          <button class="btn btn-link btn-delete" type="submit">Confirma?</button>
+        {% else %}
+          <button class="btn btn-link btn-delete" type="submit">Deletar</button>
+        {% endif %}
+      </form>
+    </div>
+
   </div>
 {% endblock content %}
