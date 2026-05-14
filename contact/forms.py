@@ -26,7 +26,7 @@ class ContactForm(forms.ModelForm):
         if first_name == last_name:
             self.add_error('last_name', 'O campo last_name não pode ser igual ao campo first_name.')
 
-        self.add_error('first_name', 'Erro genérico para o campo first_name')
-        self.add_error('last_name', 'Erro genérico para o campo last_name')
-        self.add_error('phone', 'Erro genérico para o campo phone')
+            self.add_error('first_name', 'Erro genérico para o campo first_name')
+            self.add_error('last_name', 'Erro genérico para o campo last_name')
+            self.add_error('phone', 'Erro genérico para o campo phone')
         return super().clean()

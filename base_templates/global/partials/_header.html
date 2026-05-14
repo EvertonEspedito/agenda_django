@@ -1,19 +1,43 @@
 <header class="header">
     <h1 class="header-heading">
-      <a href="{% url 'index' %}" class="header-link">Agenda</a>
+      <a href="{% url 'contact:index' %}" class="header-link">
+        Agenda
+      </a>
     </h1>
 
     <nav class="menu">
       <ul class="menu-list">
-        <li class="menu-item"><a href="{% url 'index' %}" class="menu-link">Início</a></li>
-        <li class="menu-item"><a href="{% url 'create' %}" class="menu-link">Criar Contato</a></li>
-        <li class="menu-item"><a href="{% url 'about' %}" class="menu-link">Sobre</a></li>
+
+        <li class="menu-item">
+          <a href="{% url 'contact:index' %}" class="menu-link">
+            Início
+          </a>
+        </li>
+
+        <li class="menu-item">
+          <a href="{% url 'contact:create' %}" class="menu-link">
+            Criar Contato
+          </a>
+        </li>
+
+        <li class="menu-item">
+          <a href="{% url 'contact:about' %}" class="menu-link">
+            Sobre
+          </a>
+        </li>
+
       </ul>
     </nav>
 
     <div class="search">
-      <form action="{% url 'search' %}" method="get">
-        <input type="text" class="search-input " name="q" placeholder="Pesquisar..." value="{{ request.GET.q.strip|default:'' }}">
+      <form action="{% url 'contact:search' %}" method="get">
+        <input
+          type="text"
+          class="search-input"
+          name="q"
+          placeholder="Pesquisar..."
+          value="{{ request.GET.q.strip|default:'' }}"
+        >
       </form>
     </div>
-  </header>
+</header>
